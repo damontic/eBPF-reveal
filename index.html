@@ -43,6 +43,7 @@
 						<li>Metodologías de Análisis de Rendimiento</li>
 						<li>Herramientas Clásicas</li>
 						<li>eBPF</li>
+						<li>bcc</li>
 						<li>Ejemplos Prácticos</li>
 					</ul>
 				</section>
@@ -323,8 +324,18 @@ $ flamegraph profile.data > profile.svg
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">eBPF es Usado por</h2>
+						<ul>
+							<li>tcpdump</li>
+							<li>cls_bpf: classifier for traffic shaping (QoS)</li>
+							<li>seccomp-bpf: syscalls filter to sandbox applications</li>
+							<li>xt_bpf: iptables module</li>
+						</ul>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">Evolución de eBPF</h2>
-						<img width="150%" height="150%" src="images/ebpf_evolution.png" />
+						<img width="150%" src="images/ebpf_evolution.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -332,7 +343,7 @@ $ flamegraph profile.data > profile.svg
 						<ul>
 							<li>Tracing</li>
 							<li>Software Defined Networking</li>
-							<li>DDoS Mitigation</li>
+							<li>DDoS Mitigation (Cloudflare)</li>
 							<li>Intrusion Detection</li>
 							<li>Container Security</li>
 						</ul>
@@ -340,16 +351,32 @@ $ flamegraph profile.data > profile.svg
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">eBPF internamente</h2>
-						<img width="150%" height="150%" src="images/ebpf_internal.png" />
+						<img width="150%" src="images/ebpf_internal.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left; font-size: 1.5em">Retransmisiones TCP</h2>
-						<img width="150%" height="100%" src="images/ebpf_tcp_retransmits.png" />
+						<img width="150%" src="images/ebpf_tcp_retransmits.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">bcc Tracing Tools</h2>
+						<h2 style="float: left; font-size: 1.5em">Código BPF</h2>
+						<img width="150%" src="images/bpf_code.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.5em">Código BPF</h2>
+						<img width="45%" src="images/instruction_set.png" />
+					</section>
+				</section>
+
+				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
+					<section>
+						<h1>BPF Compiler Collection</h1>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">bcc</h2>
 						<img width="60%" src="images/bcc.png" />
 					</section>
 					<section>
@@ -357,6 +384,61 @@ $ flamegraph profile.data > profile.svg
 						<h2 style="float: left">bcc Tracing Tools</h2>
 						<img width="100%" src="images/bcc_tracing_tools.png" />
 					</section>
+					<section>
+						<pre>
+							<code data-trim data-noescape>
+### Block I/O size histogram
+### bcc/examples/tracing/bitehist.py
+from bcc import BPF
+from time import sleep
+
+# load BPF program
+b = BPF(
+text="""
+	...
+""")
+
+# header
+print("Tracing... Hit Ctrl-C to end.")
+
+# trace until Ctrl-C
+try:
+	sleep(99999999)
+except KeyboardInterrupt:
+	print
+
+# output
+b["dist"].print_log2_hist("kbytes")
+						</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim data-noescape>
+#include &lt;uapi/linux/ptrace.h&gt;
+#include &lt;linux/blkdev.h&gt;
+
+BPF_HISTOGRAM(dist);
+
+int kprobe__blk_account_io_completion(
+	struct pt_regs *ctx,
+	struct request *req
+)
+{
+	dist.increment(
+		bpf_log2l(
+			req->__data_len / 1024
+		)
+	);
+	return 0;
+}
+						</code></pre>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2>/bcc/examples/tracing/bitehist.py</h2>
+						<img src="images/bitehist.png"/>
+					</section>
+				</section>
+
 				</section>
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
