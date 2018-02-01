@@ -44,7 +44,7 @@
 						<li>Herramientas Clásicas</li>
 						<li>eBPF</li>
 						<li>bcc</li>
-						<li>Ejemplos Prácticos</li>
+						<li>Herramientas bcc</li>
 					</ul>
 				</section>
 
@@ -385,8 +385,7 @@ $ flamegraph profile.data > profile.svg
 						<img width="100%" src="images/bcc_tracing_tools.png" />
 					</section>
 					<section>
-						<pre>
-							<code data-trim data-noescape>
+						<pre><code data-trim data-noescape>
 ### Block I/O size histogram
 ### bcc/examples/tracing/bitehist.py
 from bcc import BPF
@@ -434,7 +433,6 @@ int kprobe__blk_account_io_completion(
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2>/bcc/examples/tracing/bitehist.py</h2>
 						<img src="images/bitehist.png"/>
 					</section>
 				</section>
@@ -443,7 +441,12 @@ int kprobe__blk_account_io_completion(
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
 					<section>
-						<h1>Ejemplos Prácticos</h1>
+						<h2>Herramientas bcc</h2>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="10%" src="images/rombo.svg" />
+						<h2>Ejemplo 1</h2>
+						<img width="100%" src="images/iterativo_incremental.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="10%" src="images/rombo.svg" />
