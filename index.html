@@ -229,15 +229,24 @@
 						<h2 style="float: left">perf</h2>
 						<img width="100%" src="images/perf_stats.png" />
 						<pre><code data-trim data-noescape>
-perf record -g -F 99 -a -- sleep 60
-perf script | stackcollapse-perf > out.perf-folded
-flamegraph out.perf-folded  > perf.svg
+$ perf record -g -F 99 -a -- sleep 60
+$ perf script | stackcollapse-perf > out.perf-folded
+$ flamegraph out.perf-folded  > perf.svg
 						</pre></code>
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">perf Flamegraphs</h2>
-						<img width="100%" src="images/cpu-mysql-updated.svg" />
+						<object width="100%" data="images/cpu-mysql-updated.svg"></object>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.1em">Evolución de Flamegraphs</h2>
+						<img width="80%" src="images/profiling_optimizations.png" />
+						<pre><code>
+$ /usr/share/bcc/tools/profile  -f 5 > profile.data
+$ flamegraph profile.data > profile.svg
+						</code></pre>
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -250,11 +259,6 @@ flamegraph out.perf-folded  > perf.svg
 					<section>
 						<h1>eBPF</h1>
 						<img width="50%" src="images/bpf_mascot.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">Evolución en Linux</h2>
-						<img width="100%" src="images/profiling_optimizations.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -332,6 +336,11 @@ flamegraph out.perf-folded  > perf.svg
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">eBPF internamente</h2>
 						<img width="150%" height="150%" src="images/ebpf_internal.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.5em">Retransmisiones TCP</h2>
+						<img width="150%" height="100%" src="images/ebpf_tcp_retransmits.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
