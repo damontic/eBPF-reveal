@@ -228,6 +228,16 @@
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">perf</h2>
 						<img width="100%" src="images/perf_stats.png" />
+						<pre><code data-trim data-noescape>
+perf record -g -F 99 -a -- sleep 60
+perf script | stackcollapse-perf > out.perf-folded
+flamegraph out.perf-folded  > perf.svg
+						</pre></code>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">perf Flamegraphs</h2>
+						<img width="100%" src="images/cpu-mysql-updated.svg" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -245,11 +255,6 @@
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">Evolución en Linux</h2>
 						<img width="100%" src="images/profiling_optimizations.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">FlameGraphs</h2>
-						<object width="90%" data="images/cpu-mysql-updated.svg" type="image/svg+xml"></object>
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
