@@ -157,6 +157,16 @@
 							<p></p>
 						</aside>
 					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.5em">Profiling vs Tracing</h2>
+						<img width="100%" src="images/profiling_tracing.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">Tracing Tools</h2>
+						<img width="100%" src="images/tracing_tools.png" />
+					</section>
 				</section>
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
@@ -205,35 +215,23 @@
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">Perf</h2>
-						<img width="100%" src="images/perf_stats.png" />
-						<aside class="notes">
-							
-						</aside>
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">sysdig</h2>
-						<img width="100%" src="images/csysdig.png" />
-						<aside class="notes">
-							
-						</aside>
+						<h2 style="float: left">strace</h2>
+						<img width="100%" src="images/strace.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">tcpdump</h2>
 						<img width="100%" src="images/tcpdump.png" />
-
-						<aside class="notes">
-							<ul>
-								<li>Usa BPF</li>
-							</ul>
-						</aside>
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">strace</h2>
-						<img width="100%" src="images/strace.png" />
+						<h2 style="float: left">perf</h2>
+						<img width="100%" src="images/perf_stats.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">sysdig</h2>
+						<img width="100%" src="images/csysdig.png" />
 					</section>
 				</section>
 				
@@ -243,13 +241,48 @@
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">eBPF en Netflix</h2>
+						<img width="100%" src="images/netflix.jpg" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">eBPF en Netflix</h2>
+						<ul>
+							<li class="fragment">
+								¿Cuantos Ingenieros hay en Netflix?
+								<span class="fragment"><b>~1000</b></span>
+							</li>
+							<li class="fragment">
+								¿Cuantos Ingenieros usan sin saber eBPF?
+								<span class="fragment"><b>~100</b></span>
+							</li>
+							<li class="fragment">
+								¿Cuantos ejecutan comandos de eBPF directamente desde la consola?
+								<span class="fragment"><b>~12</b></span>
+							</li>
+							<li class="fragment">
+								¿Cuantos escriben herramientas con eBPF?
+								<span class="fragment"><b>~6</b></span>
+							</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Performance OS Team</li>
+								<li>Networking Team</li>
+								<li>Security Team</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">BPF</h2>
 						<ul>
 							<li>1992</li>
 							<li>Filtrar Paquetes</li>
 							<li>Inyectado de Userspace a Kernel Space</li>
 							<li>Verificado por un "Checker"</li>
-							<li>Asociado a un puerto</li>
+							<li><blockquote>"In Kernel Virtual Machine with its own instruction set."</blockquote></li>
+							<li>tcpdump -d: assembly instruction set for BPF</li>
 						</ul>
 						<aside class="notes">
 							<ul>
@@ -261,11 +294,27 @@
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">eBPF</h2>
 						<ul>
+							<li>Mejora a la Máquina Virtual</li>
 							<li>2013: Alexei Starovoitov</li>
-							<li>maps / tailrec</li>
-							<li>nuevo lenguaje cercano a nativo</li>
-							<li>nuevos puntos de Conexión en el Kernel</li>
+							<li><blockquote>"What if we could Programatically Redirect Packets"</blockquote></li>
+							<li>Terminó siendo una máquina virtual aislada en el kernel donde se pueden ejecutar programas que se crearon desde el espacio de usuario</li>
 						</ul>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">Usos de eBPF</h2>
+						<ul>
+							<li>Tracing</li>
+							<li>Software Defined Networking</li>
+							<li>DDoS Mitigation</li>
+							<li>Intrusion Detection</li>
+							<li>Container Security</li>
+						</ul>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">eBPF internamente</h2>
+						<img width="150%" height="150%" src="images/ebpf_internal.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -280,24 +329,6 @@
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">bcc Tracing Tools</h2>
 						<img width="100%" src="images/bcc_tracing_tools.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">eBPF en Netflix</h2>
-						<img width="100%" src="images/netflix.jpg" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">eBPF en Netflix</h2>
-						<ul>
-							<li class="fragment">¿Si estamos en la nube necesitamos eBPF?</li>
-							<li class="fragment">¿Cuantos Ingenieros hay en Netflix?</li>
-							<li class="fragment">~1000</li>
-							<li class="fragment">¿Cuantos ejecutan comandos de eBPF?</li>
-							<li class="fragment">~100</li>
-							<li class="fragment">¿Cuantos escriben herramientas con eBPF?</li>
-							<li class="fragment">~6</li>
-						</ul>
 					</section>
 				</section>
 
@@ -320,6 +351,7 @@
 							<li><a href="http://prototype-kernel.readthedocs.io/en/latest/bpf/">bpf Readthedocs</a></li>
 							<li><a href="https://www.youtube.com/watch?v=bj3qdEDbCD4">Velocity 2017: Performance Analysis Superpowers with Linux eBPF</a></li>
 							<li><a href="http://www.brendangregg.com/ebpf.html">Linux Enhanced BPF (eBPF) Tracing Tools</a></li>
+							<li><a href="https://jvns.ca/debugging-zine.pdf">Julia Evans Debugging Zine</a></li>
 						</ul>
 					</section>
 					<section>
