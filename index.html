@@ -39,10 +39,90 @@
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
 					<h1>Agenda</h1>
 					<ul>
+						<li>Metodologías de Análisis de Rendimiento</li>
 						<li>Herramientas Clásicas</li>
 						<li>eBPF</li>
 						<li>Ejemplos Prácticos</li>
 					</ul>
+				</section>
+
+				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
+					<section>
+						<h1 style="font-size: 2.3em">Metodologías de Análisis de Rendimiento</h1>
+						<p class="fragment">¿Qué pasos seguir para resolver un problema de rendimiento?</p>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">Anti Metodologías</h2>
+						<ul>
+							<li class="fragment">Culpa a Alguien Más</li>
+							<li class="fragment">Luz de Calle</li>
+							<li class="fragment">Hombre Borracho</li>
+							<li class="fragment">Cambio Aleatorio</li>
+							<li class="fragment">Benchmarking Pasivo</li>
+							<li class="fragment">Luz de Tráfico</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Culpa a Alguien Más</li>
+								<li>Luz de Calle</li>
+								<li>Hombre Borracho</li>
+								<li>Cambio Aleatorio</li>
+								<li>Benchmarking Pasivo</li>
+								<li>Luz de Tráfico</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">Metodologías</h2>
+						<ul>
+							<li class="fragment">Lista de Comprobación Ad Hoc</li>
+							<li class="fragment">Problem Statement Method</li>
+							<li class="fragment">RTFM</li>
+							<li class="fragment">Método Científico</li>
+							<li class="fragment">Cíclo OODA (Observe - Orient - Decide - Act)</li>
+							<li class="fragment">Identificación de la Carga de Trabajo</li>
+							<li class="fragment">Análisis de Perforación</li>
+							<li class="fragment">Proceso de Eliminación</li>
+						</ul>
+						<aside class="notes">
+							<p>Ad Hoc: solución creada para un problema específico</p>
+						</aside>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">Metodologías</h2>
+						<ul>
+							<li class="fragment">División de Tiempo</li>
+							<li class="fragment">5 * ¿Por qué?</li>
+							<li class="fragment">Por Capa</li>
+							<li class="fragment">Herramientas</li>
+							<li class="fragment">USE</li>
+							<li class="fragment">Perfilamiento de la CPU</li>
+							<li class="fragment">Análisis Fuera de CPU</li>
+							<li class="fragment">Perfilamiento del Stack</li>
+						</ul>
+						<aside class="notes">
+							<p>Fuera CPU: estudia el tiempo y las trazas del stack fuera de la CPU</p>
+						</aside>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">Metodologías</h2>
+						<ul>
+							<li class="fragment">TSA</li>
+							<li class="fragment">Benchmarking Activo</li>
+							<li class="fragment">Método R</li>
+							<li class="fragment">Pasos de Evaluación de Rendimiento</li>
+							<li class="fragment">Proceso de Planeación de Capacidad</li>
+							<li class="fragment">Identificación de Rendimiento Jerárquica de Intel</li>
+							<li class="fragment">Mantras de Rendimiento</li>
+						</ul>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</section>
 				</section>
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
@@ -116,6 +196,11 @@
 							</ul>
 						</aside>
 					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">strace</h2>
+						<img width="100%" src="images/strace.png" />
+					</section>
 				</section>
 				
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
@@ -159,26 +244,32 @@
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">eBPF en Netflix</h2>
-						<ul>
-							<li>¿Cuantos Ingenieros hay en Netflix?</li>
-							<li>~1000</li>
-							<li>¿Cuantos ejecutan comandos de eBPF?</li>
-							<li>~100</li>
-							<li>¿Cuantos escriben herramientas con eBPF?</li>
-							<li>~6</li>
-						</ul>
+						<h2 style="float: left">bcc Tracing Tools</h2>
+						<img width="100%" src="images/bcc_tracing_tools.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">bcc Tracing Tools</h2>
-						<img width="100%" src="images/bcc_tracing_tools.png" />
+						<h2 style="float: left">eBPF en Netflix</h2>
+						<img width="100%" src="images/netflix.jpg" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">eBPF en Netflix</h2>
+						<ul>
+							<li class="fragment">¿Si estamos en la nube necesitamos eBPF?</li>
+							<li class="fragment">¿Cuantos Ingenieros hay en Netflix?</li>
+							<li class="fragment">~1000</li>
+							<li class="fragment">¿Cuantos ejecutan comandos de eBPF?</li>
+							<li class="fragment">~100</li>
+							<li class="fragment">¿Cuantos escriben herramientas con eBPF?</li>
+							<li class="fragment">~6</li>
+						</ul>
 					</section>
 				</section>
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
 					<section>
-						<h1>Ejempĺos Prácticos</h1>
+						<h1>Ejemplos Prácticos</h1>
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="10%" src="images/rombo.svg" />
@@ -194,6 +285,7 @@
 							<li><a href="http://prototype-kernel.readthedocs.io/en/latest/bpf/">Readthedocs</a></li>
 							<li><a href="https://www.youtube.com/watch?v=bj3qdEDbCD4">Velocity 2017: Performance Analysis Superpowers with Linux eBPF</a></li>
 							<li><a href="http://www.brendangregg.com/ebpf.html">Brendan Gregg's: Linux Enhanced BPF (eBPF) Tracing Tools</a></li>
+							<li><a href="http://www.brendangregg.com/methodology.html">Brendan Gregg's: Performance Analysis Methodologies</a></li>
 						</ul>
 					</section>
 					<section>
