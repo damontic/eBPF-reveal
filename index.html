@@ -30,14 +30,14 @@
 		<div class="reveal">
 			<div class="slides">
 
-				<section data-background="url('images/logo_esquina_intro_end.svg'), linear-gradient(to right, #443548, #b71930, #e94635)" data-background-position="right bottom" data-background-repeat="no-repeat">
+				<section data-background="url('images/logo_esquina_intro_end.svg'), linear-gradient(to right, #443548, #b71930, #e94635)" data-background-position="right bottom" data-background-repeat="no-repeat" data-timing="30">
 					<img class="no-border" width="5%" src="images/rombo.svg" />
 					<img class="no-border" width="15%" src="images/s4n.svg" />
 					<h1 class="white-font">Enhanced Berkley Packet Filter</h1>
 					<img width="15%" src="images/bpf_mascot.png" />
 				</section>
 
-				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
+				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat" data-timing="30">
 					<h1>Agenda</h1>
 					<ul>
 						<li>Metodologías de Análisis de Rendimiento</li>
@@ -49,15 +49,15 @@
 				</section>
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
-					<section>
+					<section data-timing="30">
 						<h1 style="font-size: 2.3em">Metodologías de Análisis de Rendimiento</h1>
 						<p class="fragment">¿Qué pasos seguir para resolver un problema de rendimiento?</p>
 					</section>
-					<section>
+					<section data-timing="90">
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">Anti Metodologías</h2>
 						<ul>
-							<li class="fragment">Culpa a Alguien Más</li>
+							<li class="fragment">Culpar a Alguien Más</li>
 							<li class="fragment">Luz de Calle</li>
 							<li class="fragment">Hombre Borracho</li>
 							<li class="fragment">Cambio Aleatorio</li>
@@ -69,8 +69,7 @@
 								<li>Luz de Calle</li>
 								<ol>
 									<li>Elegir Herramientas familiares/Internet/Aleatorias</li>
-									<li>Ejecutarlas</li>
-									<li>Mirar problemas obvios</li>
+									<li>Buscar problemas obvios</li>
 								</ol>
 								<li>Cambio Aleatorio</li>
 								<ol>
@@ -99,7 +98,7 @@
 							</ul>
 						</aside>
 					</section>
-					<section>
+					<section data-timing="90">
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">Metodologías</h2>
 						<ul>
@@ -123,10 +122,22 @@
 									<ol>¿Cúal es la Carga? (IOPS,tput,type)</ol>
 									<ol>¿Cómo varía la carga en el tiempo? (series de tiempo)</ol>
 								</li>
+								<li><b>Análisis de Perforación</b>:
+									<ol>Empezar al nivel más alto</ol>
+									<ol>Examinar los siguientes niveles de detalle</ol>
+									<ol>Elegir la sección más interesante</ol>
+									<ol>Si el problema no se soluciona regresar al paso 2</ol>
+								</li>
+								<li><b>Proceso de Eliminación</b>:
+									<ol>Dividir el objetivo en componentes</ol>
+									<ol>Elegir una prueba</ol>
+									<ol>Realizar la prueba</ol>
+									<ol>Validar si los componentes de prueba pasan</ol>
+								</li>
 							</ul>
 						</aside>
 					</section>
-					<section>
+					<section data-timing="90">
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">Metodologías</h2>
 						<ul>
@@ -134,20 +145,56 @@
 							<li class="fragment">5 * ¿Por qué?</li>
 							<li class="fragment">Por Capa</li>
 							<li class="fragment">Herramientas</li>
-							<li class="fragment">USE</li>
+							<li class="fragment">USE (Use - Saturation - Errors)</li>
 							<li class="fragment">Perfilamiento de la CPU</li>
 							<li class="fragment">Análisis Fuera de CPU</li>
 							<li class="fragment">Perfilamiento del Stack</li>
 						</ul>
 						<aside class="notes">
-							<p>Fuera CPU: estudia el tiempo y las trazas del stack fuera de la CPU</p>
+							<ul>
+								<li><b>División de Tiempo (Análisis de Latencia)</b>:
+									<ol>Medir tiempo de operación/latencia</ol>
+									<ol>Dividir tiempo en componentes síncronos</ol>
+									<ol>Continuar la división hasta identificar el origen de la latencia</ol>
+									<ol>Cuantificar: estimar la mejora si se arregla el problema</ol>
+								</li>
+								<li><b>Por Capa (Medir latencias asociadas a)</b>:
+									<ol>Lenguajes Dinámicos</ol>
+									<ol>Ejecutables</ol>
+									<ol>Librerías</ol>
+									<ol>Llamadas al Sistema</ol>
+									<ol>Kernel: FS, red</ol>
+									<ol>Drivers de Dispositivos</ol>
+								</li>
+								<li><b>Herramientas</b>:
+									<ol>Listar herramientas de rendimiento</ol>
+									<ol>Listar métricas útiles</ol>
+									<ol>Interpretación por métrica</ol>
+									<ol>Ejecutar herramienta seleccionada e interpretar las métricas</ol>
+								</li>
+								<li><b>USE</b>:Por cada <b>recurso</b> mirar:
+									<ol>Uso</ol>
+									<ol>Saturación</ol>
+									<ol>Errores</ol>
+								</li>
+								<li><b>Perfilamiento de CPU</b>:
+									<ol>Realizar perfilamiento de CPU (Flamegraphs)</ol>
+									<ol>Entender todo el software en el perfil > 1%</ol>
+								</li>
+								<li><b>Fuera CPU</b>:estudia el tiempo y las trazas del stack fuera de la CPU</li>
+								<li><b>Perfilamiento del Stack</b>:
+									<ol>Perfilamiento de stack traces de hilos (en y fuera de la CPU)</ol>
+									<ol>Mezclar</ol>
+									<ol>Estudiar los stacks de abajo hacia arriba</ol>
+								</li>
+							</ul>
 						</aside>
 					</section>
-					<section>
+					<section data-timing="90">
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">Metodologías</h2>
 						<ul>
-							<li class="fragment">TSA</li>
+							<li class="fragment">TSA (Thread State Analysis)</li>
 							<li class="fragment">Benchmarking Activo</li>
 							<li class="fragment">Método R</li>
 							<li class="fragment">Pasos de Evaluación de Rendimiento</li>
@@ -156,7 +203,52 @@
 							<li class="fragment">Mantras de Rendimiento</li>
 						</ul>
 						<aside class="notes">
-							<p></p>
+							<ul>
+								<li><b>TSA</b>: Por cada hilo de interés analizar el tiempo de estados de hilos del SO:
+									<ol>Executing</ol>
+									<ol>Runnable</ol>
+									<ol>Swapping</ol>
+									<ol>Sleeping</ol>
+									<ol>Lock</ol>
+									<ol>Idle</ol>
+									<ol>Investigar estados de más a menos frecuente</ol>
+								</li>
+								<li><b>Benchmarking Activo</b>:
+									<ol>Ejecutar un Benchmark durante un importante periodo de tiempo</ol>
+									<ol>Mientras se ejecuta, realizar un análisis de rendimiento con otras herramientas y determinar los factores delimitantes</ol>
+								</li>
+								<li><b>Método R</b>:
+									<ol>Seleccionar acciones de usuario con carga de negocio</ol>
+									<ol>MEdir las causas de tiempo de respuesta para estas acciones</ol>
+									<ol>Elegir la mejor actividad de optimización</ol>
+								</li>
+								<li><b>Pasos de Evaluación de Rendimiento</b>:
+									<ol>Uso</ol>
+									<ol>Saturación</ol>
+									<ol>Errores</ol>
+									<ol>Uso</ol>
+									<ol>Saturación</ol>
+									<ol>Errores</ol>
+									<ol>Uso</ol>
+									<ol>Saturación</ol>
+									<ol>Errores</ol>
+									<ol>Uso</ol>
+								</li>
+								<li><b>Proceso de Planeación de Capacidad</b>:
+									<ol>Realizar perfilamiento de CPU (Flamegraphs)</ol>
+									<ol>Entender todo el software en el perfil > 1%</ol>
+								</li>
+								<li><b>Identificación de Rendimiento Jerárquica de Intel</b>:
+									<ol>Perfilamiento de stack traces de hilos (en y fuera de la CPU)</ol>
+									<ol>Mezclar</ol>
+									<ol>Estudiar los stacks de abajo hacia arriba</ol>
+								</li>
+								<li><b>Mantras de Rendimiento</b>:
+									<ol>Perfilamiento de stack traces de hilos (en y fuera de la CPU)</ol>
+									<ol>Mezclar</ol>
+									<ol>Estudiar los stacks de abajo hacia arriba</ol>
+								</li>
+							</ul>
 						</aside>
 					</section>
 					<section>
@@ -196,6 +288,11 @@
 								<li></li>
 							</ul>
 						</aside>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">dstat</h2>
+						<img width="75%" src="images/dstat.png" />
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -482,7 +579,7 @@ int kprobe__blk_account_io_completion(
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
-				defaultTiming: 120,
+				defaultTiming: 60,
 				zoomKey: 'shift',
 				multiplex: {
 					// Example values. To generate your own, see the socket.io server instructions.
