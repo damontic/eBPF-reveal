@@ -44,7 +44,6 @@
 						<li>Metodologías de Análisis de Rendimiento</li>
 						<li>eBPF</li>
 						<li>bcc</li>
-						<li>Herramientas bcc</li>
 					</ul>
 				</section>
 
@@ -488,11 +487,6 @@ $ flamegraph out.perf-folded  > perf.svg
 						<img width="60%" src="images/bcc.png" />
 					</section>
 					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">bcc Tracing Tools</h2>
-						<img width="100%" src="images/bcc_tracing_tools.png" />
-					</section>
-					<section>
 						<pre><code data-trim data-noescape>
 ### Block I/O size histogram
 ### bcc/examples/tracing/bitehist.py
@@ -540,20 +534,16 @@ int kprobe__blk_account_io_completion(
 						</code></pre>
 					</section>
 					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<img src="images/bitehist.png"/>
 					</section>
-				</section>
-
-				</section>
-
-				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
-					<section>
-						<h2>Herramientas bcc</h2>
-					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left; font-size: 1.1em">CPU Flamegraphs</h2>
+						<h2 style="float: left">bcc Tracing Tools</h2>
+						<img width="100%" src="images/bcc_tracing_tools.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.1em">CPU profile: Flamegraphs</h2>
 						<img width="80%" src="images/profiling_optimizations.png" />
 						<pre><code>
 $ /usr/share/bcc/tools/profile  -f 5 > profile.data
@@ -561,7 +551,7 @@ $ flamegraph profile.data > profile.svg
 						</code></pre>
 					</section>
 					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
 						<h2 style="float: left; font-size: 1.1em">CPU llcstat</h2>
 						<img width="80%" src="images/llcstat.png" />
 						<aside class="notes">
