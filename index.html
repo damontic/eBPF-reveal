@@ -110,6 +110,11 @@
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">perf</h2>
+						<img width="70%" src="images/perf_list.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">perf</h2>
 						<img width="100%" src="images/perf_stats.png" />
 						<pre><code data-trim data-noescape>
 $ perf record -g -F 99 -a -- sleep 60
@@ -140,11 +145,11 @@ $ flamegraph out.perf-folded  > perf.svg
 						<h1 style="font-size: 2.3em">Metodologías de Análisis de Rendimiento</h1>
 					</section>
 					<section data-timing="30">
-						<h2 style="font-size: 2.3em">Metodologías de Análisis de Rendimiento</h2>
+						<h3>Metodologías de Análisis de Rendimiento</h3>
 						<ul>
 							<li class="fragment">¿Qué pasos seguir para resolver un problema de rendimiento?</li>
 							<li class="fragment">¿Una vez se obtienen unas métricas, qué se hace con ellas?</li>
-							<li class="fragment">Formas de analizar sistemas y aplicaciones desconocidas.</li>
+							<li class="fragment">Analizar sistemas y aplicaciones desconocidas.</li>
 						</ul>
 					</section>
 					<section data-timing="90">
@@ -468,7 +473,7 @@ $ flamegraph out.perf-folded  > perf.svg
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left; font-size: 1.5em">Código BPF</h2>
+						<h2 style="float: left; font-size: 1.5em">BPF Instruction Set</h2>
 						<img width="45%" src="images/instruction_set.png" />
 					</section>
 				</section>
@@ -548,12 +553,21 @@ int kprobe__blk_account_io_completion(
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left; font-size: 1.1em">Evolución de Flamegraphs</h2>
+						<h2 style="float: left; font-size: 1.1em">CPU Flamegraphs</h2>
 						<img width="80%" src="images/profiling_optimizations.png" />
 						<pre><code>
 $ /usr/share/bcc/tools/profile  -f 5 > profile.data
 $ flamegraph profile.data > profile.svg
 						</code></pre>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.1em">CPU llcstat</h2>
+						<img width="80%" src="images/llcstat.png" />
+						<aside class="notes">
+							<p><b>llcstat</b> traces cache reference and cache miss events system-wide, and summarizes
+them by PID and CPU.</p>
+						</aside>
 					</section>
 				</section>
 
@@ -561,6 +575,7 @@ $ flamegraph profile.data > profile.svg
 					<section>
 						<h1 class="white-font">Recursos</h1>
 						<ul>
+							<li><a href="https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md">bcc Tutorial</a></li>
 							<li><a href="http://www.brendangregg.com/methodology.html">Performance Analysis Methodologies</a></li>
 							<li><a href="https://www.youtube.com/watch?v=ay41Uq1DrvM">Performance Analysis Methodologies Video</a></li>
 							<li><a href="http://prototype-kernel.readthedocs.io/en/latest/bpf/">bpf Readthedocs</a></li>
