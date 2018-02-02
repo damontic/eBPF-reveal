@@ -40,8 +40,8 @@
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat" data-timing="30">
 					<h1>Agenda</h1>
 					<ul>
-						<li>Metodologías de Análisis de Rendimiento</li>
 						<li>Herramientas Clásicas</li>
+						<li>Metodologías de Análisis de Rendimiento</li>
 						<li>eBPF</li>
 						<li>bcc</li>
 						<li>Herramientas bcc</li>
@@ -49,9 +49,106 @@
 				</section>
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
+					<section data-timing="10">
+						<h1 style="font-size: 2.3em">Herramientas Clásicas</h1>
+					</section>
+					<section data-timing="30">
+						<img width="100%" src="images/linux_perf_tools_full.svg" />
+						<aside class="notes">
+							<ul>
+								<li>Herramientas de Observabilidad (azul claro)</li>
+								<li>Herramientas Estáticas de Rendimiento (verde claro)</li>
+							</ul>
+						</aside>
+					</section>
+					<section data-timing="60">
+						<img width="100%" src="images/observability_tools.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">sar</h2>
+						<img width="100%" src="images/sar.png" />
+						<aside class="notes">
+							<ul>
+								<li></li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">dstat</h2>
+						<img width="75%" src="images/dstat.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">TipTop</h2>
+						<img width="100%" src="images/tiptop.png" />
+						<aside class="notes">
+							<ul>
+								<li>Información de Contadores de Rendimiento de  Hardware ()</li>
+								<li>P:</li>
+								<li>Mcycle:</li>
+								<li>Minstr:</li>
+								<li>IPC: Instructions Per Cycle</li>
+								<li>%MISS:</li>
+								<li>%BMIS:</li>
+								<li>%BUS:</li>
+								<li>No funciona en ambientes virtuales.</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">strace</h2>
+						<img width="100%" src="images/strace.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">tcpdump</h2>
+						<img width="100%" src="images/tcpdump.png" />
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">perf</h2>
+						<img width="100%" src="images/perf_stats.png" />
+						<pre><code data-trim data-noescape>
+$ perf record -g -F 99 -a -- sleep 60
+$ perf script | stackcollapse-perf > out.perf-folded
+$ flamegraph out.perf-folded  > perf.svg
+						</pre></code>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">perf Flamegraphs</h2>
+						<object width="30%" data="images/intellij_flamegraph.svg"></object>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.1em">Evolución de Flamegraphs</h2>
+						<img width="80%" src="images/profiling_optimizations.png" />
+						<pre><code>
+$ /usr/share/bcc/tools/profile  -f 5 > profile.data
+$ flamegraph profile.data > profile.svg
+						</code></pre>
+					</section>
+					<section>
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left">sysdig</h2>
+						<img width="100%" src="images/csysdig.png" />
+					</section>
+				</section>
+
+<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
 					<section data-timing="30">
 						<h1 style="font-size: 2.3em">Metodologías de Análisis de Rendimiento</h1>
-						<p class="fragment">¿Qué pasos seguir para resolver un problema de rendimiento?</p>
+					</section>
+					<section data-timing="30">
+						<h2 style="font-size: 2.3em">Metodologías de Análisis de Rendimiento</h2>
+						<ul>
+							<li class="fragment">¿Qué pasos seguir para resolver un problema de rendimiento?</li>
+							<li class="fragment">¿Una vez se obtienen unas métricas, qué se hace con ellas?</li>
+							<li class="fragment">Formas de analizar sistemas y aplicaciones desconocidas.</li>
+						</ul>
 					</section>
 					<section data-timing="90">
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -110,6 +207,7 @@
 							<li class="fragment">Identificación de la Carga de Trabajo</li>
 							<li class="fragment">Análisis de Perforación</li>
 							<li class="fragment">Proceso de Eliminación</li>
+							<li class="fragment">RED (Request - Error - Duration)</li>
 						</ul>
 						<aside class="notes">
 							<ul>
@@ -200,6 +298,7 @@
 							<li class="fragment">Pasos de Evaluación de Rendimiento</li>
 							<li class="fragment">Proceso de Planeación de Capacidad</li>
 							<li class="fragment">Identificación de Rendimiento Jerárquica de Intel</li>
+							<li class="fragment">Diagrama Funcional</li>
 							<li class="fragment">Mantras de Rendimiento</li>
 						</ul>
 						<aside class="notes">
@@ -223,30 +322,31 @@
 									<ol>Elegir la mejor actividad de optimización</ol>
 								</li>
 								<li><b>Pasos de Evaluación de Rendimiento</b>:
-									<ol>Uso</ol>
-									<ol>Saturación</ol>
-									<ol>Errores</ol>
-									<ol>Uso</ol>
-									<ol>Saturación</ol>
-									<ol>Errores</ol>
-									<ol>Uso</ol>
-									<ol>Saturación</ol>
-									<ol>Errores</ol>
-									<ol>Uso</ol>
-								</li>
+									<ol>State the goals of the study and define system boundaries</ol>
+									<ol>List system services and possible outcomes</ol>
+									<ol>Select performance metrics</ol>
+									<ol>List system and workload parameters</ol>
+									<ol>Select factors and their values</ol>
+									<ol>Select the workload</ol>
+									<ol>Design the experiments</ol>
+									<ol>Analyze and interpret the data</ol>
+									<ol>Present the results</ol>
+									<ol>If necessary, start over</ol>
 								<li><b>Proceso de Planeación de Capacidad</b>:
-									<ol>Realizar perfilamiento de CPU (Flamegraphs)</ol>
-									<ol>Entender todo el software en el perfil > 1%</ol>
-								</li>
-								<li><b>Identificación de Rendimiento Jerárquica de Intel</b>:
-									<ol>Perfilamiento de stack traces de hilos (en y fuera de la CPU)</ol>
-									<ol>Mezclar</ol>
-									<ol>Estudiar los stacks de abajo hacia arriba</ol>
+									<ol>Instrument the system</ol>
+									<ol>Monitor system usage</ol>
+									<ol>Characterize workload</ol>
+									<ol>Predict performance under different alternatives</ol>
+									<ol>Select the lowest cost, highest performance alternative</ol>
 								</li>
 								<li><b>Mantras de Rendimiento</b>:
-									<ol>Perfilamiento de stack traces de hilos (en y fuera de la CPU)</ol>
-									<ol>Mezclar</ol>
-									<ol>Estudiar los stacks de abajo hacia arriba</ol>
+									<ol>Don't do it</ol>
+									<ol>Do it, but don't do it again</ol>
+									<ol>Do it less</ol>
+									<ol>Do it later</ol>
+									<ol>Do it when they're not looking</ol>
+									<ol>Do it concurrently</ol>
+									<ol>Do it cheaper</ol>
 								</li>
 							</ul>
 						</aside>
@@ -262,96 +362,6 @@
 						<img width="100%" src="images/tracing_tools.png" />
 					</section>
 				</section>
-
-				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
-					<section>
-						<h1 style="font-size: 2.3em">Herramientas Clásicas</h1>
-					</section>
-					<section>
-						<img width="100%" src="images/linux_perf_tools_full.svg" />
-						<aside class="notes">
-							<ul>
-								<li>Herramientas de Observabilidad (azul claro)</li>
-								<li>Herramientas Estáticas de Rendimiento (verde claro)</li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<img width="100%" src="images/observability_tools.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">sar</h2>
-						<img width="100%" src="images/sar.png" />
-						<aside class="notes">
-							<ul>
-								<li></li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">dstat</h2>
-						<img width="75%" src="images/dstat.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">TipTop</h2>
-						<img width="100%" src="images/tiptop.png" />
-						<aside class="notes">
-							<ul>
-								<li>Información de Contadores de Rendimiento de  Hardware ()</li>
-								<li>P:</li>
-								<li>Mcycle:</li>
-								<li>Minstr:</li>
-								<li>IPC: Instructions Per Cycle</li>
-								<li>%MISS:</li>
-								<li>%BMIS:</li>
-								<li>%BUS:</li>
-								<li>No funciona en ambientes virtuales.</li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">strace</h2>
-						<img width="100%" src="images/strace.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">tcpdump</h2>
-						<img width="100%" src="images/tcpdump.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">perf</h2>
-						<img width="100%" src="images/perf_stats.png" />
-						<pre><code data-trim data-noescape>
-$ perf record -g -F 99 -a -- sleep 60
-$ perf script | stackcollapse-perf > out.perf-folded
-$ flamegraph out.perf-folded  > perf.svg
-						</pre></code>
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">perf Flamegraphs</h2>
-						<object width="100%" data="images/cpu-mysql-updated.svg"></object>
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left; font-size: 1.1em">Evolución de Flamegraphs</h2>
-						<img width="80%" src="images/profiling_optimizations.png" />
-						<pre><code>
-$ /usr/share/bcc/tools/profile  -f 5 > profile.data
-$ flamegraph profile.data > profile.svg
-						</code></pre>
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">sysdig</h2>
-						<img width="100%" src="images/csysdig.png" />
-					</section>
-				</section>
 				
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
 					<section>
@@ -361,12 +371,11 @@ $ flamegraph profile.data > profile.svg
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">eBPF en Netflix</h2>
-						<img width="100%" src="images/netflix.jpg" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">eBPF en Netflix</h2>
 						<ul>
+							<li class="fragment">
+								¿Donde está la infraestructura de Netflix?
+								<span class="fragment"><b>&gt;AWS</b></span>
+							</li>
 							<li class="fragment">
 								¿Cuantos Ingenieros hay en Netflix?
 								<span class="fragment"><b>~1000</b></span>
@@ -557,6 +566,7 @@ int kprobe__blk_account_io_completion(
 						<h1 class="white-font">Recursos</h1>
 						<ul>
 							<li><a href="http://www.brendangregg.com/methodology.html">Performance Analysis Methodologies</a></li>
+							<li><a href="https://www.youtube.com/watch?v=ay41Uq1DrvM">Performance Analysis Methodologies Video</a></li>
 							<li><a href="http://prototype-kernel.readthedocs.io/en/latest/bpf/">bpf Readthedocs</a></li>
 							<li><a href="https://www.youtube.com/watch?v=bj3qdEDbCD4">Velocity 2017: Performance Analysis Superpowers with Linux eBPF</a></li>
 							<li><a href="http://www.brendangregg.com/ebpf.html">Linux Enhanced BPF (eBPF) Tracing Tools</a></li>
