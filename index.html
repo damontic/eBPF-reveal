@@ -121,15 +121,12 @@ $ flamegraph out.perf-folded  > perf.svg
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">perf Flamegraphs</h2>
 						<object width="30%" data="images/intellij_flamegraph.svg"></object>
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left; font-size: 1.1em">Evolución de Flamegraphs</h2>
-						<img width="80%" src="images/profiling_optimizations.png" />
-						<pre><code>
-$ /usr/share/bcc/tools/profile  -f 5 > profile.data
-$ flamegraph profile.data > profile.svg
-						</code></pre>
+						<aside class="notes">
+							<ul>
+								<li>Sucede mucho que se atrapan hilos y están bloqueados</li>
+								<li>En Linux se puede unir el stack bloqueado y el del hilo bloqueante</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
@@ -550,14 +547,13 @@ int kprobe__blk_account_io_completion(
 						<h2>Herramientas bcc</h2>
 					</section>
 					<section>
-						<img style="float: left" class="no-border"  width="10%" src="images/rombo.svg" />
-						<h2>Ejemplo 1</h2>
-						<img width="100%" src="images/iterativo_incremental.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="10%" src="images/rombo.svg" />
-						<h2>Ejemplo 1</h2>
-						<img width="100%" src="images/iterativo_incremental.png" />
+						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+						<h2 style="float: left; font-size: 1.1em">Evolución de Flamegraphs</h2>
+						<img width="80%" src="images/profiling_optimizations.png" />
+						<pre><code>
+$ /usr/share/bcc/tools/profile  -f 5 > profile.data
+$ flamegraph profile.data > profile.svg
+						</code></pre>
 					</section>
 				</section>
 
