@@ -294,6 +294,11 @@ $ flamegraph out.perf-folded  > perf.svg
 							</ul>
 						</aside>
 					</section>
+                    <section>
+                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+                        <h2 style="float: left">Kernel Symbols</h2>
+                        <img src="images/timing_operations.png" />
+                    </section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">Metodologías</h2>
@@ -457,6 +462,16 @@ $ flamegraph out.perf-folded  > perf.svg
 						<h1>eBPF</h1>
 						<img width="50%" src="images/bpf_mascot.png" />
 					</section>
+                    <section>
+                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+                        <h2 style="float: left; font-size: 1.5em">Profiling vs Tracing</h2>
+                        <img width="100%" src="images/profiling_tracing.png" />
+                    </section>
+                    <section>
+                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+                        <h2 style="float: left">Kernel Symbols</h2>
+                        <p>/proc/kallsyms</p>
+                    </section>
 					<section>
 						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
 						<h2 style="float: left">eBPF en Netflix</h2>
@@ -565,18 +580,8 @@ $ flamegraph out.perf-folded  > perf.svg
 					</section>
                     <section>
                         <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-                        <h2 style="float: left; font-size: 1.5em">Profiling vs Tracing</h2>
-                        <img width="100%" src="images/profiling_tracing.png" />
-                    </section>
-                    <section>
-                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
                         <h2 style="float: left">Tracing Tools</h2>
                         <img width="100%" src="images/tracing_tools.png" />
-                    </section>
-                    <section>
-                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-                        <h2 style="float: left">Kernel Symbols</h2>
-                        <p>/proc/kallsyms</p>
                     </section>
 				</section>
 
@@ -652,6 +657,11 @@ $ flamegraph profile.data > profile.svg
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">execsnoop</h2>
                         <img width="80%" src="images/execsnoop.gif" />
+                        <aside class="notes">
+                            <ul>
+                                <li>ps no muestra procesos que se ejecutan muy rápidamente...</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
@@ -661,7 +671,7 @@ $ flamegraph profile.data > profile.svg
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">ext4slower (or btrfs*, xfs*, zfs*)</h2>
-                        <img width="80%" src="images/ext4slower.gif" />
+                        <img width="80%" src="images/ext4slower.png" />
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
