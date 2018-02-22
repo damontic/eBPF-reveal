@@ -656,9 +656,11 @@ $ flamegraph profile.data > profile.svg
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">execsnoop</h2>
                         <img width="80%" src="images/execsnoop.gif" />
+
                         <aside class="notes">
                             <ul>
-                                <li>ps no muestra procesos que se ejecutan muy rápidamente...</li>
+                                <li>ps no muestra procesos que se ejecutan muy rápidamente...Consumen CPU pero no se muestran</li>
+                                <li>captura las SC exec (cómo funciona?) y no los fork...=> no atrapa todos los procesos...</li>
                             </ul>
                         </aside>
                     </section>
@@ -666,16 +668,42 @@ $ flamegraph profile.data > profile.svg
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">opensnoop</h2>
                         <img width="80%" src="images/opensnoop.gif" />
+
+                        <aside class="notes">
+                            <ul>
+                                <li>open() syscall, including details</li>
+                                <li>forma en la cual las aplicaciones abren archivos dicen mucho: archivos de datos, de configuración, de log</li>
+                                <li>identificar comportamientos extraños de aplicaciones</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">ext4slower (or btrfs*, xfs*, zfs*)</h2>
                         <img width="80%" src="images/ext4slower.png" />
+
+                          <aside class="notes">
+                            <ul>
+                                <li>Mide duración de operaciones más comunes e imprime las que demoran más de un umbral</li>
+                                <li>identificar discos lentos</li>
+                                <li>los discos procesan el IO asíncronamente, dificil relacionar mal comportamiento de aplicación con lentitud de disco.</li>
+                                <li>btrfsslower, xfsslower, and zfsslower</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">biolatency</h2>
-                        <img width="80%" src="images/biolatency.gif" />
+                        <img width="80%" src="images/biolatency.png" />
+
+                          <aside class="notes">
+                            <ul>
+                                <li>mide duración de operaciones desde que se envía al dispositivo hasta que se completa</li>
+                                <li>muestra histograma de latencias</li>
+                                <li>bueno para entender latencia de IO en vez de usar herramientas basadas en promedios (iostat)</li>
+                                <li>valores atípicos</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
