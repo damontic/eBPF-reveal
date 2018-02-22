@@ -51,6 +51,22 @@
 					<section data-timing="10">
 						<h1 style="font-size: 2.3em">Herramientas Clásicas</h1>
 					</section>
+                    <section data-timing="0">
+                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+                        <h2 style="float: left">sar</h2>
+                        <ol>
+                            <li>uptime</li>
+                            <li>dmesg | tail</li>
+                            <li>vmstat 1</li>
+                            <li>mpstat -P ALL 1</li>
+                            <li>pidstat 1</li>
+                            <li>iostat -xz 1</li>
+                            <li>free -m</li>
+                            <li>sar -n DEV 1</li>
+                            <li>sar -n TCP,ETCP 1</li>
+                            <li>top</li>
+                        </ol>
+                    </section>
 					<section  data-timing="600">
 						<img width="100%" src="images/linux_perf_tools_full.svg" />
 						<aside class="notes">
@@ -434,16 +450,6 @@ $ flamegraph out.perf-folded  > perf.svg
 							</ul>
 						</aside>
 					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left; font-size: 1.5em">Profiling vs Tracing</h2>
-						<img width="100%" src="images/profiling_tracing.png" />
-					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">Tracing Tools</h2>
-						<img width="100%" src="images/tracing_tools.png" />
-					</section>
 				</section>
 				
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
@@ -557,6 +563,21 @@ $ flamegraph out.perf-folded  > perf.svg
 						<h2 style="float: left; font-size: 1.5em">BPF Instruction Set</h2>
 						<img width="45%" src="images/instruction_set.png" />
 					</section>
+                    <section>
+                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+                        <h2 style="float: left; font-size: 1.5em">Profiling vs Tracing</h2>
+                        <img width="100%" src="images/profiling_tracing.png" />
+                    </section>
+                    <section>
+                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+                        <h2 style="float: left">Tracing Tools</h2>
+                        <img width="100%" src="images/tracing_tools.png" />
+                    </section>
+                    <section>
+                        <img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
+                        <h2 style="float: left">Kernel Symbols</h2>
+                        <p>/proc/kallsyms</p>
+                    </section>
 				</section>
 
 				<section data-background="url('images/logo_esquina.svg')" data-background-position="right bottom" data-background-repeat="no-repeat">
@@ -619,11 +640,6 @@ int kprobe__blk_account_io_completion(
 						<img src="images/bitehist.png"/>
 					</section>
 					<section>
-						<img style="float: left" class="no-border"  width="6%" src="images/rombo.svg" />
-						<h2 style="float: left">bcc Tracing Tools</h2>
-						<img width="100%" src="images/bcc_tracing_tools.png" />
-					</section>
-					<section>
 						<img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
 						<h2 style="float: left; font-size: 1.1em">CPU profile: Flamegraphs</h2>
 						<img width="80%" src="images/profiling_optimizations.png" />
@@ -632,15 +648,11 @@ $ /usr/share/bcc/tools/profile  -f 5 > profile.data
 $ flamegraph profile.data > profile.svg
 						</code></pre>
 					</section>
-					<section>
-						<img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
-						<h2 style="float: left; font-size: 1.1em">CPU llcstat</h2>
-						<img width="80%" src="images/llcstat.png" />
-						<aside class="notes">
-							<p><b>llcstat</b> traces cache reference and cache miss events system-wide, and summarizes
-them by PID and CPU.</p>
-						</aside>
-					</section>
+                    <section>
+                        <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
+                        <h2 style="float: left; font-size: 1.1em">CPU profile: Flamegraphs</h2>
+                        <img width="80%" src="images/profiling_optimizations.png" />
+                    </section>
 				</section>
 
 				<section data-background="url('images/logo_esquina_intro_end.svg'), linear-gradient(to right, #443548, #b71930, #e94635)" data-background-position="right bottom" data-background-repeat="no-repeat">
