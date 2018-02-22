@@ -746,7 +746,15 @@ $ flamegraph profile.data > profile.svg
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">tcpaccept</h2>
-                        <img width="80%" src="images/tcpaccept.gif" />
+                        <img width="80%" src="images/tcpaccept.png" />
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Una línea cada por cada conexión TCP pasiva (via accept) con detalles como direcciones de fuente y destino</li>
+                                <li>Permite identificar conexiones no esperadas que puedan representar mala configuración o un intruzo</li>
+                            </ul>
+                        </aside>
+
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
