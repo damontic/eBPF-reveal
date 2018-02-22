@@ -708,7 +708,15 @@ $ flamegraph profile.data > profile.svg
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">biosnoop</h2>
-                        <img width="80%" src="images/biosnoop.gif" />
+                        <img width="80%" src="images/biosnoop.png" />
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Una línea por cada operación de IO con detalles de latencia</li>
+                                <li>Permite examinar operaciones de IO con más detalle y ver orden en patrones (e.g. lecturas encoladas por escrituras)</li>
+                                <li>Puede haber mucho output si hay muchas escrituras</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
