@@ -759,7 +759,16 @@ $ flamegraph profile.data > profile.svg
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
                         <h2 style="float: left; font-size: 1.1em">tcptrans</h2>
-                        <img width="80%" src="images/tcptrans.gif" />
+                        <img width="80%" src="images/tcptrans.png" />
+                        <img width="80%" src="images/tcptrans2.png" />
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Una línea cada por cada paquete TCP que se retransmite con detalles como direcciones de fuente, destino, estado de la conexión TCP en el kernel</li>
+                                <li>las retransmisiones causan latencias y problemas de . Hay varios tipos de retransmisiones: SYN_SENT (saturación de cpu kernel o eliminación de paquetes) o ESTABLISHED (patrones en las redes).</li>
+                            </ul>
+                        </aside>
+
                     </section>
                     <section>
                         <img style="float: left" class="no-border"  width="4%" src="images/rombo.svg" />
